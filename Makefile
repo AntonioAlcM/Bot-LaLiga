@@ -2,7 +2,7 @@ install:
 	sudo pip install -r requirements.txt
 
 travis:
-	mysql -u < bot_LaLiga/laliga.sql && pip install -r requirements.txt
+	mysql bot_LaLiga/laliga.sql && pip install -r requirements.txt
 
 test:
 	cd bot_LaLiga && python test.py
