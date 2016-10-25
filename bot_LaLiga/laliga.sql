@@ -25,6 +25,9 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `clasificacion`
 --
+CREATE DATABASE laliga;
+
+USE laliga;
 
 CREATE TABLE IF NOT EXISTS `clasificacion` (
   `posicion` int(11) NOT NULL,
