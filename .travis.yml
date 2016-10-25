@@ -1,6 +1,10 @@
 language: python
 python:
  - "2.7"
+env:
+  global:
+    - USUARIO=root
+    - CONTRASENA=''
 install:
   - make travis
 #Script
