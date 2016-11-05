@@ -1,7 +1,6 @@
 PyMySQL==0.7.9
 argparse==1.2.1
 beautifulsoup4==4.5.1
-distribute==0.6.24
 py==1.4.31
 pyTelegramBotAPI==2.1.7
 requests==2.11.1
