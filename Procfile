@@ -1,2 +1,2 @@
-web: make ejecutar
+web: cd bot_LaLiga && python bot_LaLiga.py 
 
