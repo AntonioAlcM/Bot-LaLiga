@@ -73,8 +73,8 @@ def selectDataClasi():
 	msn2=msn2.replace("'","")
 	msn2=msn2.replace("L,","-")
 	msn2=msn2.replace(",","")
-	msn2=msn2.replace("xe9","é")
-	msn2=msn2.replace("xe1","á")
+	msn2=msn2.replace("xc3xa9","é")
+	msn2=msn2.replace("xc3xa1","á")
 	
 	return msn2
 	

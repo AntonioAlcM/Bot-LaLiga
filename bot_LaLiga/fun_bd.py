@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
-import pymysql
+import os
+import psycopg2
 
-DB_HOST = '' 
-DB_USER = '' 
-DB_PASS = '' 
-DB_NAME = 'laliga'
 
+#DB_HOST = '127.0.0.1' 
+#DB_USER = 'root' 
+#DB_PASS = '123456' 
+#DB_NAME = 'laliga'
+
+#urlparse.uses_netloc.append("postgres")
+#url = urlparse.urlparse(os.environ["postgres://dvrvjtupxbpjbs:enzqVLw1_CnTvtacmB2uFEzo16@ec2-54-247-189-242.eu-west-1.compute.amazonaws.com:5432/d8j7nr0lsdudmc"])
 
 def run_query(query=''): 
 	"""Funcion que ejecuta las consultas con la base de datos.
@@ -14,9 +18,15 @@ def run_query(query=''):
 		-query: consulta a la base de datos.
 
 	"""
-    	datos = [DB_HOST, DB_USER, DB_PASS, DB_NAME] 
- 
-    	conn = pymysql.connect(*datos) # Conectar a la base de datos 
+    	#datos = [DB_HOST, DB_USER, DB_PASS, DB_NAME] 
+ 	conn = psycopg2.connect(
+	    database="d8j7nr0lsdudmc",
+	    user="dvrvjtupxbpjbs",
+	    password="enzqVLw1_CnTvtacmB2uFEzo16",
+	    host="ec2-54-247-189-242.eu-west-1.compute.amazonaws.com",
+	    port="5432"
+	)
+    	#conn = pymysql.connect(*datos) # Conectar a la base de datos 
     	cursor = conn.cursor()         # Crear un cursor 
     	cursor.execute(query)          # Ejecutar una consulta 
  
@@ -65,6 +75,7 @@ def insertResultados(v_local,v_result,v_visit,partido):
 		-partido: entero que representa el número de partido 
 
 	"""
+	#query = "INSERT INTO clasificacion (posicion,Equipo) VALUES ('%i','%s')" % (i+1,v_team[i])
 	query= "UPDATE resultados set local='%s',marcador='%s',visitante='%s' where partido=%i"% (v_local,v_result,v_visit,partido)
     	resultado=run_query(query)
 
