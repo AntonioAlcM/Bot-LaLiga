@@ -20,3 +20,24 @@ Como herramientas de construcción tengo un archivo Makefile y un requirements.t
 Para la realización de los test he utilizado la libreria **unittest**, para su ejecución se ha incluido un objetivo *make test* dentro del archivo Makefile.
 
 Como sistema de integración continua se utiliza Travis-CI, para ello he incluido un archivo .travis.yml en el repositorio, donde se configura la conexión con travis-ci y se le indica como instalar las dependencias necesarias para la ejecución del bot y como ejecutar los test.
+
+**Despliegue en Heroku**
+
+Para realizar el despliegue en Heroku, lo he configurado para cada que cada vez que haga push a el repositorio de github donde se encuentra el bot directamente se despliegue en heroku.
+
+Para el despliegue haremos uso de un fichero **Procfile**, este fichero deberá de encontrarse en el directorio raíz y en el se declararán los comandos que deben ser ejecutados para arrancar el bot. El fichero quedaría asi:  
+```
+worker: cd bot_LaLiga && python bot_LaLiga.py 
+```
+
+Además del archivo Procfile es necesario un archivo con nombre **runtime.txt** en el que le especificaremos la versión de python que se está utilizando, en este caso la versión *python-2.7.12*.
+
+Una vez tenemos esto vamos a la página de Heroku y hacemos clic en nueva aplicación y le ponemos el nombre que deseemos.  
+Una vez creada la aplicación en Heroku, nos vamos a la configuración de despliegue y vinculamos la aplicación con el repositorio de github donde se encuentra el bot. Habilitaremos el despligue automático para que cada vez que hagamos un push a github se despliegue automáticamente, además de esto habilitaremos la opción de que solo se despligue si pasa los test de travis.
+
+![img](https://github.com/manuelalonsobraojos/IV-Ejercicios/blob/master/Ejercicios-tema3/capturas/Captura.PNG)
+
+Con respecto al servicio de base de datos, con respectos a los anteriores hitos la he pasado PostgreSQL, ya que es uno de los servicios de base de datos que nos ofrece Heroku gratuitamente. Para crear las tablas que necesitemos deberemos acceder a dicha base de datos con el comando ```heroku logs --tail --ps postgres --app <nombre de la app>```. 
+
+Con esto ya tendremos configurado nuestro despliegue atomático y podremos probarlo desde telegram buscando el bot por el nombre de **@La_Liga_bot**. 
+
