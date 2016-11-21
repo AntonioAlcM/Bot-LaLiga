@@ -39,5 +39,5 @@ Una vez creada la aplicación en Heroku, nos vamos a la configuración de despli
 
 Con respecto al servicio de base de datos, con respectos a los anteriores hitos la he pasado PostgreSQL, ya que es uno de los servicios de base de datos que nos ofrece Heroku gratuitamente. Para crear las tablas que necesitemos deberemos acceder a dicha base de datos con el comando ```heroku logs --tail --ps postgres --app <nombre de la app>```. 
 
-Con esto ya tendremos configurado nuestro despliegue atomático y podremos probarlo desde telegram buscando el bot por el nombre de **@La_Liga_bot**. 
+Con esto ya tendremos configurado nuestro despliegue atomático y podremos probarlo desde telegram buscando el bot por el nombre de **@La_Liga_bot**. Se puede ver que está desplegado en el Paas Heroku desde el siguiente [Enlace](https://botlaliga.herokuapp.com/) aunque mostrará un error ya que no se trata de una web. 
 
