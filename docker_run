@@ -1,6 +1,10 @@
 #!/bin/bash
 
 apt-get -y update
+apt-get install python2.7
+apt-get install -y python-pip
+apt-get install -y python-software-properties 
+apt-get install build-essential
 make install
 export TOKEN="263651123:AAHUqH6y-q2WCu5gkvKQ5PrrBhUKQ_9D0BU"
 export USER_BD="dvrvjtupxbpjbs"
