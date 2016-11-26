@@ -2,3 +2,6 @@
 
 apt-get -y update
 make install
+export TOKEN="263651123:AAHUqH6y-q2WCu5gkvKQ5PrrBhUKQ_9D0BU"
+export USER_BD="dvrvjtupxbpjbs"
+export PASS_BD="enzqVLw1_CnTvtacmB2uFEzo16"
