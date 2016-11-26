@@ -5,7 +5,9 @@ apt-get install python2.7
 apt-get install -y python-pip
 apt-get install -y python-software-properties 
 apt-get install build-essential
-make install
+apt-get install libpq-dev
+apt-get install libxml2-dev libxslt-dev  python-dev  python-setuptools
+pip install -r requirements.txt
 export TOKEN="263651123:AAHUqH6y-q2WCu5gkvKQ5PrrBhUKQ_9D0BU"
 export USER_BD="dvrvjtupxbpjbs"
 export PASS_BD="enzqVLw1_CnTvtacmB2uFEzo16"
