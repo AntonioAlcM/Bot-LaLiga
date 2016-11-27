@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo docker run -i -t laliga /bin/bash
+cd /home/proyectoIV && make ejecutar
