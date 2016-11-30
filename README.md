@@ -53,7 +53,7 @@ Para subir el proyecto a docker primero deberemos de crear y configurar el conte
 
 **Subiendolo a DockerHub**
 
-Para subir el contenerdor a DockerHub primero deberemos de [registrarnos](hub.docker.com). Una vez nos hemos registrado crearemos un repositorio, en mi caso el repositorio será *manuelalonsobraojos/proyectoiv*. Le asignaremos a dicho repositorio un *tag*, que será el ID de la imagen que vamos a subir, para ello utilizaremos el comando ```docker tag 7e0247a93381 manuelalonsobraojos/proyectoiv```, una vez asignado el tag lo subimos ejecutando el comando ```docker push manuelalonsobraojos/proyectoiv```.
+Para subir el contenerdor a DockerHub primero deberemos de [registrarnos](https://hub.docker.com/). Una vez nos hemos registrado crearemos un repositorio, en mi caso el repositorio será *manuelalonsobraojos/proyectoiv*. Le asignaremos a dicho repositorio un *tag*, que será el ID de la imagen que vamos a subir, para ello utilizaremos el comando ```docker tag 7e0247a93381 manuelalonsobraojos/proyectoiv```, una vez asignado el tag lo subimos ejecutando el comando ```docker push manuelalonsobraojos/proyectoiv```.
 
 Para instalar el contenedor tan solo deberemos de ejecutar el comando ```docker pull manuelalonsobraojos/proyectoiv``` y el contenedor comenzará a instalarse automáticamente.  
 Una vez instalado el contenedor lo arrancamos ejecutando el comando ```sudo docker run -i -t manuelalonsobraojos/proyectoiv  /bin/bash```.  
