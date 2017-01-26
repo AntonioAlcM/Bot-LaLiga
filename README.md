@@ -64,7 +64,7 @@ cd /home/proyectoIV && make ejecutar
 El docker de mi proyecto se puede encontrar en el siguiente [enlace](https://hub.docker.com/r/manuelalonsobraojos/proyectoiv/).
 
 
-**Despliegue con Vagrant y Ansible**
+###Despliegue con Vagrant y Ansible
 
 Para crear máquinas virtuales en Azure, empezaremos con descargar e instalar **Vagrant**, lo podemos hacer desde su [página oficial](https://www.vagrantup.com/downloads.html). Una vez hemos instalado vagrant, instalaremos **Ansible**, para ello ejecutaremos el siguiente comando:  
 ``` 
@@ -88,12 +88,28 @@ Una vez hecho todo esto ya podemos realizar el archivo Vagrantfile. Primero ejec
 ``` 
 vagrant init
 ```
-Una vez hecho desarrollaremos los archivos [vagranfile]() y [configuración_ansible]() (que es llamado desde el **vagrantfile**), que se encargaran del despliegue.
+Una vez hecho desarrollaremos los archivos [vagranfile](https://github.com/manuelalonsobraojos/proyectoIV/blob/master/Vagrantfile) y [configuración_ansible](https://github.com/manuelalonsobraojos/proyectoIV/blob/master/configuracion_ansible.yml) (llamado desde el **vagrantfile**), que se encargaran del despliegue.
 
 Una vez está todo listo procederemos al despligue ejecutando la siguiente orden:
 ```
 vagrant up --provider=azure
 ```
+
+###Fabric
+
+**Fabric** es una herramienta con la que podremos administrar una máquina remota una vez haya sido creada y aprovisionada con todo lo necesario. Para la utilización de dicha herramienta deberemos de ejecutar la orden de la siguiente forma:
+```
+fab -p CONTRASEÑA -H usuario@host ORDEN
+```
+Este comando buscará en la ubicación en la que nos encontremos actualmente un fichero fabfile que contenga la orden especificada, dicha orden conllevará unas acciones que la máquina llevará a cabo.  
+Las ordenes que se podrán llevar en mi archivo [fabfile]() son:
+
+- descargar: descarga el proyecto de el repositorio de github.
+- iniciar: ejecuta el bot.
+- detener: detiene el bot.
+- borrar: borra el proyecto.
+- testear: lanza los test del proyecto.
+- instalar: instala todos los componentes necesarios para la ejecución del bot.
 
 
 
