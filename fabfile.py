@@ -1,8 +1,5 @@
 from fabric.api import *
 
-def info_servidor():
-    run ('uname -s')
-
 def descargar():
     run ('sudo rm -rf proyectoIV')
     run ('sudo git clone https://github.com/manuelalonsobraojos/proyectoIV')
@@ -17,7 +14,7 @@ def borrar():
     run ('rm -rf proyectoIV')
 
 def testear():
-    run ('cd proyectoIV && make bot_LaLiga/test')
+    run ('cd proyectoIV && make test')
 
 def instalar():
-    run ('cd proyectoIV && make bot_LaLiga/install')
+    run ('cd proyectoIV && make install')
