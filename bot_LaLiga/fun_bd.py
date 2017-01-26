@@ -21,8 +21,8 @@ def run_query(query=''):
     	#datos = [DB_HOST, DB_USER, DB_PASS, DB_NAME] 
  	conn = psycopg2.connect(
 	    database="d8j7nr0lsdudmc",
-	    user=os.environ['USER_BD'],
-	    password=os.environ['PASS_BD'],
+	    user="dvrvjtupxbpjbs",
+	    password="enzqVLw1_CnTvtacmB2uFEzo16",
 	    host="ec2-54-247-189-242.eu-west-1.compute.amazonaws.com",
 	    port="5432"
 	)

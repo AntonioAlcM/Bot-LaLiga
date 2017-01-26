@@ -7,7 +7,7 @@ import time # Librería para hacer que el programa que controla el bot no se aca
 import funciones
 import os
 
-TOKEN = os.environ['TOKEN'] # Nuestro tokken del bot (el que @BotFather nos dió).
+TOKEN = "263651123:AAHUqH6y-q2WCu5gkvKQ5PrrBhUKQ_9D0BU" # Nuestro tokken del bot (el que @BotFather nos dió).
 bot = telebot.TeleBot(TOKEN)
 
 funciones.recolectData()
