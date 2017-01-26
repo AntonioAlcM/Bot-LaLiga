@@ -64,7 +64,36 @@ cd /home/proyectoIV && make ejecutar
 El docker de mi proyecto se puede encontrar en el siguiente [enlace](https://hub.docker.com/r/manuelalonsobraojos/proyectoiv/).
 
 
+**Despliegue con Vagrant y Ansible**
 
+Para crear máquinas virtuales en Azure, empezaremos con descargar e instalar **Vagrant**, lo podemos hacer desde su [página oficial](https://www.vagrantup.com/downloads.html). Una vez hemos instalado vagrant, instalaremos **Ansible**, para ello ejecutaremos el siguiente comando:  
+``` 
+apt-get install ansible
+```
+Una vez aquí instalaremos los plugins de Azure, para ello deberemos de ejecutar el siguiente comando:
+``` 
+vagrant plugin install vagrant-azure
+``` 
+Para realizar el despliegue en Azure en necesario que dispongamos de una suscripción, para la asignatura el profesor nos ha proporcionado una suscripción. Si no disponemos de una se puede conseguir mediante pago.
+
+Una vez tenemos la suscripción deberemos de crear los certificados de servidor. Lo haremos ejecutando las siguientes ordenes:
+``` 
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout azure.pem -out azure.pem
+openssl x509 -inform pem -in azure.pem -outform der -out azure.cer
+chmod 600 azure.pem
+``` 
+Una vez creados los certificados, nos loguearemos en nuestra cuenta de Azure, en este caso lo haremos en el [portal antiguo](https://manage.windowsazure.com), una vez logueados accederemos al apartado de Configuración, Certificados y Administración, y cargaremos el archivo *.cer*.  
+
+Una vez hecho todo esto ya podemos realizar el archivo Vagrantfile. Primero ejecutaremos la siguiente orden:
+``` 
+vagrant init
+```
+Una vez hecho desarrollaremos los archivos [vagranfile]() y [configuración_ansible]() (que es llamado desde el **vagrantfile**), que se encargaran del despliegue.
+
+Una vez está todo listo procederemos al despligue ejecutando la siguiente orden:
+```
+vagrant up --provider=azure
+```
 
 
 
