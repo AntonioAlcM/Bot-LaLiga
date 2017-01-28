@@ -111,7 +111,7 @@ Las ordenes que se podrán llevar en mi archivo [fabfile]() son:
 - testear: lanza los test del proyecto.
 - instalar: instala todos los componentes necesarios para la ejecución del bot.
 
-
+La ejecución del bot se hace mediante un supervisor que ejecutará el bot sin la necesidad de tener abierta la MV, para ell hemos creado un archivo de configuración que podemos ver [aquí](https://github.com/manuelalonsobraojos/proyectoIV/blob/master/laliga.conf)
 
 
 
