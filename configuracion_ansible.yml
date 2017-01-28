@@ -2,6 +2,11 @@
 - hosts: default
   remote_user: manuel
   sudo: yes
+  vars:
+    TOKEN: "{{ lookup('env','TOKEN') }}" 
+    USER_BD: "{{ lookup('env','USER_BD') }}" 
+    PASS_BD: "{{ lookup('env', 'PASS_BD') }}"
+
   tasks:
   - name: Update
     command: apt-get update
@@ -19,6 +24,10 @@
     apt: name=postgresql state=present
     apt: name=postgresql-contrib state=present
     apt: name=libpq-dev state=present
+  - name: Instalar supervisor
+    apt: name=supervisor state=present
+  - name: Configura programa para supervisor
+    template: src=laliga.conf dest=/etc/supervisor/conf.d/laliga.conf
   - name: Clone 
     shell: rm -rf proyectoIV && git clone https://github.com/manuelalonsobraojos/proyectoIV
   - name: Actualizar pip
@@ -26,6 +35,5 @@
     command: sudo apt-get install python-dev
   - name: Instalar requirements
     command: sudo pip install -r proyectoIV/requirements.txt
-  - name: Execution
-    shell: cd proyectoIV && python bot_LaLiga/bot_LaLiga.py
+
 
