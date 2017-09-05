@@ -105,3 +105,70 @@ def selectVisitante():
     	query="SELECT visitante FROM resultados"
     	result = run_query(query)
     	return result
+
+#************************
+
+def insertClasificacionSegunda(v_team,v_point,posicion):
+	"""Funcion para insertar los datos de la clasificación en la base de datos.
+
+	   Parámetros:
+		-v_team: vector con los equipos.
+		-v_point: vector con los puntos.
+		-posicion: entero de la posición en liga 
+
+	"""
+    	query= "UPDATE clasificacion_segunda set equipo='%s',puntos='%s' where posicion=%i"% (v_team,v_point,posicion)
+    	resultado=run_query(query)
+    
+    	return resultado
+
+#devuelve la clasificación de la base de datos
+def selectClasificacionSegunda():
+	"""Funcion que devuelve la información de la clasificación de la base de datos.
+
+	"""
+    	query="SELECT* FROM clasificacion_segunda"
+    	result = run_query(query)
+    	return result
+
+#Inserta en la base de datos los datos de los resultados de la jornada    
+def insertResultadosSegunda(v_local,v_result,v_visit,partido):
+	"""Funcion para insertar los datos de los resultados de la jornada en la base de datos
+
+	   Parámetros:
+		-v_local: vector con los equipos locales.
+		-v_result: vector con los resultados de los encuentros.
+		-v_visit: vector con los equipos visitantes.
+		-partido: entero que representa el número de partido 
+
+	"""
+	#query = "INSERT INTO clasificacion (posicion,Equipo) VALUES ('%i','%s')" % (i+1,v_team[i])
+	query= "UPDATE resultados_segunda set local='%s',marcador='%s',visitante='%s' where partido=%i"% (v_local,v_result,v_visit,partido)
+    	resultado=run_query(query)
+
+#devuelve los resultadosde la base de datos
+def selectResultadosSegunda():
+	"""Funcion que devuelve los equipos locales de los resultados de la jornada guardados en la base de datos.
+
+	"""
+    	query="SELECT local FROM resultados_segunda"
+    	result = run_query(query)
+    	return result
+
+#devuelve los resultadosde la base de datos
+def selectMarcadorSegunda():
+	"""Funcion que devuelve los marcadores de los resultados de la jornada guardados en la base de datos.
+
+	"""
+    	query="SELECT marcador FROM resultados_segunda"
+    	result = run_query(query)
+    	return result
+    
+#devuelve los resultadosde la base de datos
+def selectVisitanteSegunda():
+	"""Funcion que devuelve los equipos visitantes de los resultados de la jornada guardados en la base de datos.
+
+	"""
+    	query="SELECT visitante FROM resultados_segunda"
+    	result = run_query(query)
+    	return result

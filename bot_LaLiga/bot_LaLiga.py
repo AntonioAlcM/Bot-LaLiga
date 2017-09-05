@@ -24,7 +24,7 @@ def listener(messages): # Con esto, estamos definiendo una función llamada 'lis
 
 bot.set_update_listener(listener)
 
-@bot.message_handler(commands=['clasificacion']) 
+@bot.message_handler(commands=['clasificacion1']) 
 def clasificacion(m): # Definimos una función que resuelva lo que necesitemos.
 	"""Funcion que envia la clasificiación de la liga española al id que ha realizado la petición. 
 
@@ -39,7 +39,7 @@ def clasificacion(m): # Definimos una función que resuelva lo que necesitemos.
 
 
 bot.set_update_listener(listener)
-@bot.message_handler(commands=['resultados']) 
+@bot.message_handler(commands=['resultados1']) 
 def resultados(m): # Definimos una función que resuelva lo que necesitemos.
 	"""Funcion que envia los resultados de la jornada al id que ha realizado la petición. 
 
@@ -53,5 +53,35 @@ def resultados(m): # Definimos una función que resuelva lo que necesitemos.
 	mensaje=funciones.selectDataResult()
 	bot.send_message( cid, mensaje)
 
+
+bot.set_update_listener(listener)
+@bot.message_handler(commands=['clasificacion2']) 
+def clasificacion2(m): # Definimos una función que resuelva lo que necesitemos.
+	"""Funcion que envia la clasificiación de la liga de 2ª division española al id que ha realizado la petición. 
+
+	   Parámetros:
+		-m:id de la conversación 
+
+	"""
+	funciones.recolectDataSegunda()
+	cid = m.chat.id # Guardamos el ID de la conversación para poder responder.
+	mensaje=funciones.selectDataClasiSeg()
+	bot.send_message( cid, mensaje)
+
+
+bot.set_update_listener(listener)
+@bot.message_handler(commands=['resultados2']) 
+def resultados2(m): # Definimos una función que resuelva lo que necesitemos.
+	"""Funcion que envia los resultados de la jornada al id que ha realizado la petición. 
+
+	   Parámetros:
+		-m:id de la conversación 
+
+	"""
+
+	funciones.inserDataResultSegunda()
+	cid = m.chat.id # Guardamos el ID de la conversación para poder responder.
+	mensaje=funciones.selectDataResultSegunda()
+	bot.send_message( cid, mensaje)
 
 bot.polling(none_stop=True)
